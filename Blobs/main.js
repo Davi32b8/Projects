@@ -1,11 +1,11 @@
 
 class Blob {
     constructor() {
-        this.r = 30 + 50*random()
+        this.r = 30 + 70*random()
         this.x = this.r + (w - 2*this.r)*random()
         this.y = this.r + (h - 2*this.r)*random()
-        this.vx = 5 + 10*random()
-        this.vy = 5 + 10*random()
+        this.vx = 10*random()
+        this.vy = 10*random()
     }
     update() {
         this.x += this.vx; this.y += this.vy
@@ -14,15 +14,18 @@ class Blob {
     }
 }
 
+let blobs = []
+function num(n) { blobs = []; for (let i=0; i<n; i++) blobs.push(new Blob()) }
+
 createCanvas(900, 600)
 loadPixels()
 
-let num = 3, blobs = []
-for (let i=0; i<num; i++) blobs.push(new Blob())
+num(1)
+
 loop = () => {
     for (let i=0; i<=pixels.length; i+=4) {
         let sum = 0
-        for (let b of blobs) sum += 200*b.r/dist(position(i)[0], position(i)[1], b.x, b.y)
+        for (let b of blobs) sum += 140*b.r/dist(position(i)[0], position(i)[1], b.x, b.y)
         pixels[i] = pixels[i+1] = pixels[i+2] = 255
         pixels[i+3] = sum
     } 

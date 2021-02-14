@@ -56,4 +56,4 @@ function translate(Nx, Ny)                  { context.translate(Nx, Ny); transla
 
 function loadPixels()                       { imageData = context.getImageData(0, 0, w, h); pixels = imageData.data; }
 function updatePixels()                     { context.putImageData(imageData, 0, 0); }
-function position(index)                    { let y = Math.floor(index/(4*w)); let x = map(index/4, w*y, w*(y + 1 ) - 1, 0, w); return [x, y]; }
+function position(index)                    { return [Math.floor(map(index/4, w*Math.floor(index/(4*w)), w*(Math.floor(index/(4*w)) + 1 ) - 1, 0, w)), Math.floor(index/(4*w))]; }
