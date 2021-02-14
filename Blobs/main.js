@@ -20,7 +20,7 @@ function num(n) { blobs = []; for (let i=0; i<n; i++) blobs.push(new Blob()) }
 createCanvas(900, 600)
 loadPixels()
 
-num(1)
+num(2)
 
 loop = () => {
     for (let i=0; i<=pixels.length; i+=4) {
